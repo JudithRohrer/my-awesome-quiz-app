@@ -10,7 +10,7 @@ import { Quiz, Answers, Choice } from './quiz.model';
 export class AppComponent {
   title = 'my-awesome-quiz-app';
   private answers: Answers;
-  private quiz: Quiz;
+  public quiz: Quiz;
   private currentQuestionIndex: number;
   private showResults = false;
 
@@ -21,6 +21,7 @@ export class AppComponent {
       this.currentQuestionIndex = 0;
     });
   }
+
 
   updateChoice(choice: Choice) {
     this.answers.values[this.currentQuestionIndex] = choice;
