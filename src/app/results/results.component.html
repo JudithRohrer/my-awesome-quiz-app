@@ -1,7 +1,11 @@
-<div class="results">
-  <h2>Results</h2>
-  <div class="answer" *ngFor="let a of answers.values" [ngClass]="{correct: a.correct}">
-    {{a.value}}
-  </div>
-  <a routerLink="/welcome" class="btn btn-primary">Choose another quiz</a>
-</div>
+<mat-card>
+  <mat-card-title class="title">Results</mat-card-title>
+  <mat-card-content class="answers" *ngFor="let a of answers.values; let i = index;" [ngClass]="{correct: a.correct}">
+    Question {{i+1}}:<br>
+    {{a.value}} -
+    <span class="true-false">{{a.correct ? "Right!" : "Nope."}}</span>
+  </mat-card-content>
+  <mat-card-actions>
+    <a mat-raised-button routerLink="/welcome" color="primary">Choose another quiz</a>
+  </mat-card-actions>
+</mat-card>
